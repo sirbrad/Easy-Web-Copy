@@ -1,48 +1,40 @@
 define(['jquery', 'Utils/getEl'], function(jQuery, getId){
 	var input = getId('input'),
 		output = getId('output'),
-		group = [];
+		group;
 		
 	function render(val) {
 		
-		// Strip out all line breaks.
-		var strSingleLineText = input.value.replace(
-			// Replace out the new line character.
-			new RegExp( "\\n", "g" ), 
-			 
-			// Put in ... so we can see a visual representation of where
-			// the new line characters were replaced out.
-			"</p><p>" 
-			);
+		// Reset values
+		output.innerHTML = "";
+		group = [];
+		
+		// Check for new line, when one is found wrap in P tags
+		var newtext = val.replace(/([^\n]+)/g, function(found, cg1){
+			var temp = '<p>' + cg1 + '</p>';
 			
-		val = '<p>' + strSingleLineText + '</p>';
-		group.push(val.split('<p></p>'));
-		arr = group[0];
-		
-		
-		
-		for (var i = 0; i < arr.length; i++) {
-			var elems = document.createTextNode(arr[i]),
-				bre = document.createElement('br');
+			// Stripping out any spaces before the closing p tag. CODE OCD
+			temp = temp.replace(/\s(<\/p>)/, function(found, cg1){
+				return cg1;
+			});
 			
-			output.appendChild(elems)
-			output.appendChild(bre)
-		}	
-
-
-
-
-		 
-		 //output.appendChild(document.createTextNode(arr))
+			group.push(temp);
+			return temp;
+		});
+		
+		for (var i = 0; i < group.length; i++) {
+			var txt = document.createTextNode(group[i]),
+				p = document.createElement('p');
+			
+			p.appendChild(txt);
+			output.appendChild(p)
+		}
 	}
 		 
 	
-		
-	jQuery(input).bind('focusout', function(e){
+	jQuery(input).bind('keyup', function(e){
 		var targ = e.target,
 			val = targ.value;
-			
-			console.log(targ.value)
 		
 		render(val);
 		
