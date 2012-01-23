@@ -25,7 +25,7 @@ define(['jquery', 'Utils/getEl'], function(jQuery, getId){
 		for (var i = 0; i < group.length; i++) {
 			var txt = document.createTextNode(group[i]),
 				p = document.createElement('p');
-			
+				
 			p.appendChild(txt);
 			output.appendChild(p)
 		}

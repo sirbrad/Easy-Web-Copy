@@ -18,11 +18,16 @@
 </head>
 <?php flush(); ?>
 <body>	
-	<div class="contain">
-    	<h1>Experiment</h1>
-    	<p>Attempting to create a app that generates html markup from copied text from a text editor.</p>
-        <textarea id="input" class="input" placeholder="Drop in ze text"></textarea>
-        <div id="output" class="output"></div>
+	<header>
+    	<p class="contain"><a class="logo" href="/" title="Easy Peasy Web Copy"><span class="p-open">&lt;p&gt;</span>Easy Peasy Web Copy<span class="p-close">&lt;/p&gt;</span></a></p>
+    </header>
+	<div class="contain body">
+        <h1>Because copywriters don't like P tags</h1>
+        <textarea id="input" class="input area" placeholder="Put in ze text"></textarea>
+        <div id="output" class="output area"></div>
+        <footer>
+        	<a href="https://twitter.com/#!/Bradleyfew">@Bradleyfew</a>
+        </footer>
     </div>
     <script data-main="Assets/Scripts/main" src="Assets/Scripts/Require.min.js"></script>
 </body>
