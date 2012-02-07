@@ -9,6 +9,6 @@ A simple web tool to make life easier when copying from a text document into htm
 
 How to run
 -----------
-Simply cloning this repo into your local environment will do the trick. There is a working demo at [JSfiddle](http://jsfiddle.net/bradleyfew/wJqfY/2/embedded/result/)
+Simply cloning this repo into your local environment will do the trick. There is a working demo [here](http://sirbrad.github.com/Easy-Web-Copy/)
 
 Feel free to use and/or alter the tool for your own projects.
